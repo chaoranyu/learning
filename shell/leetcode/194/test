@@ -1,0 +1,9 @@
+#!/bin/bash
+cols=`head -n 1 file.txt | wc -w`
+
+for ((i=1; i<=$cols; i++))
+do
+    cut -f $i -d ' ' file.txt | xargs
+    #cut -f $i -d ' ' file.txt | tr -s "\n" " "
+    #echo
+done

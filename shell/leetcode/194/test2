@@ -1,0 +1,8 @@
+#!/bin/bash
+filename="$1"
+nColumn=`head -n1 $filename | wc -w`
+
+for i in `seq 1 $nColumn`
+do
+    echo `cut -f$i -d' ' $filename`
+done

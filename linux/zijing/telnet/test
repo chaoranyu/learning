@@ -1,0 +1,45 @@
+#!/bin/bash
+if (( $# != 1 ))
+then
+  echo " usage: $0 address "
+  exit 1
+fi
+ip=$1
+inp1=`cat param |grep "$ip" |awk '{ print $1 }'`
+inp2=`cat param |grep "$ip" |awk '{ print $2 }'`
+inp3=`cat param |grep "$ip" |awk '{ print $3 }'`
+
+cat param | awk '{ print $1 }'
+echo "-----------------"
+echo $inp1
+echo $inp2
+echo $inp3
+echo "-----------------"
+
+inputfile=in
+outputfile=out
+rm -fr $inputfile
+rm -fr $outputfile
+mknod $inputfile p
+touch $outputfile
+
+#file description 7 for out and 8 for in
+exec 7<>$outputfile
+exec 8<>$inputfile
+
+telnet $ip <&8 >&7 &
+
+sleep 1; echo $inp1 >> $inputfile
+sleep 1; echo $inp2 >> $inputfile
+sleep 1; echo $inp3 >> $inputfile
+
+tail -f $outputfile &
+
+while true
+do
+  read str
+  if [[ $str = "quit" || $str = "exit" ]]
+  then echo $str >> $inputfile ; exit
+  else echo $str >> $inputfile
+  fi
+done

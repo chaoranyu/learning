@@ -1,0 +1,2 @@
+#!/bin/bash
+tr -s ' ' '\n' < file.txt | sort | uniq -c | sort -r | sed -e 's/\([^ ]*\) \(.*\)/\2 \1/'

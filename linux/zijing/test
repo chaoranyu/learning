@@ -1,0 +1,45 @@
+#!/bin/sh 
+if [ $# != 1 ]
+then
+  echo " usage: $0 address "
+  exit 1
+fi
+ip=$1
+inp1=`cat addrule1 |grep "$ip" |awk -F";" '{ print $2 }'`
+inp2=`cat addrule1 |grep "$ip" |awk -F";" '{ print $3 }'`
+inp3=`cat addrule1 |grep "$ip" |awk -F";" '{ print $4 }'`
+inp4=`cat addrule1 |grep "$ip" |awk -F";" '{ print $5 }'`
+inp5=`cat addrule1 |grep "$ip" |awk -F";" '{ print $6 }'`
+inp6=`cat addrule1 |grep "$ip" |awk -F";" '{ print $7 }'`
+inp7=`cat addrule1 |grep "$ip" |awk -F";" '{ print $8 }'`
+inp8=`cat addrule1 |grep "$ip" |awk -F";" '{ print $9 }'`
+inp9=`cat addrule1 |grep "$ip" |awk -F";" '{ print $10 }'`
+inp10=`cat addrule1 |grep "$ip" |awk -F";" '{ print $11 }'`
+inp11=`cat addrule1 |grep "$ip" |awk -F";" '{ print $12 }'`
+inp12=`cat addrule1 |grep "$ip" |awk -F";" '{ print $13 }'`
+
+inputfile=addrulein1
+outputfile=addruleout1
+rm -fr $inputfile
+rm -fr $outputfile
+mknod $inputfile p
+touch $outputfile
+
+#file description 7 for out and 8 for in 
+exec 7<>$outputfile
+exec 8<>$inputfile
+
+telnet $ip <&8 >&7 &
+
+usleep 400000; echo $inp1 >> $inputfile
+usleep 400000; echo $inp2 >> $inputfile
+usleep 400000; echo $inp3 >> $inputfile
+usleep 400000; echo $inp4 >> $inputfile
+usleep 400000; echo $inp5 >> $inputfile
+usleep 400000; echo $inp6 >> $inputfile
+usleep 400000; echo $inp7 >> $inputfile
+usleep 400000; echo $inp8 >> $inputfile
+usleep 400000; echo $inp9 >> $inputfile
+usleep 400000; echo $inp10 >> $inputfile
+usleep 400000; echo $inp11 >> $inputfile
+usleep 400000; echo $inp12 >> $inputfile

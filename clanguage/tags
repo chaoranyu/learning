@@ -1,0 +1,263 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLOCSIZE	e_chapter/6/sort.c	93;"	d	file:
+BUFSIZE	d_chapter/3/cal/calculator.c	104;"	d	file:
+BUFSIZE	d_chapter/3/cal/io.h	8;"	d
+BUFSIZE	d_chapter/5/cal/getch.c	3;"	d	file:
+BUFSIZE	d_chapter/5/cal/make/getch.c	3;"	d	file:
+BUFSIZE	f_chapter/5/tree.c	106;"	d	file:
+BUFSIZE	f_chapter/5/wc/io.h	3;"	d
+CalculateNumberOfSpaces	a_chapter/exercise/exercise21.c	/^int CalculateNumberOfSpaces(int Offset, int TabSize)$/;"	f
+HEXADECIMAL	g_chapter/2/print.c	7;"	d	file:
+IN	a_chapter/exercise/printByWord.c	2;"	d	file:
+IN	a_chapter/exercise/printHistogram.c	3;"	d	file:
+IN	a_chapter/wctest/wc.c	2;"	d	file:
+LENGTH	a_chapter/exercise/printHistogram.c	2;"	d	file:
+MAXLEN	e_chapter/6/sort.c	26;"	d	file:
+MAXLINE	a_chapter/charArray.c	2;"	d	file:
+MAXLINE	a_chapter/longestLine.c	3;"	d	file:
+MAXLINE	d_chapter/strmatch.c	2;"	d	file:
+MAXLINE	e_chapter/10/find.c	3;"	d	file:
+MAXLINES	e_chapter/6/sort.c	4;"	d	file:
+MAXOP	d_chapter/3/cal/cal.c	6;"	d	file:
+MAXOP	d_chapter/3/cal/calculator.c	4;"	d	file:
+MAXOP	d_chapter/5/cal/main.c	5;"	d	file:
+MAXOP	d_chapter/5/cal/make/main.c	5;"	d	file:
+MAXVAL	d_chapter/3/cal/calculator.c	51;"	d	file:
+MAXVAL	d_chapter/3/cal/stack.h	7;"	d
+MAXVAL	d_chapter/5/cal/make/stack.c	4;"	d	file:
+MAXVAL	d_chapter/5/cal/stack.c	4;"	d	file:
+MAXWORD	f_chapter/5/tree.c	6;"	d	file:
+MAXWORD	f_chapter/5/wc/main.c	4;"	d	file:
+MAXWORDLEN	a_chapter/exercise/histogramRef.c	4;"	d	file:
+MAX_BUFFER	a_chapter/exercise/exercise21.c	5;"	d	file:
+MAX_ELEMENT	c_chapter/3/binSample.c	18;"	d	file:
+NUMBER	d_chapter/3/cal/calculator.c	5;"	d	file:
+NUMBER	d_chapter/3/cal/io.h	7;"	d
+NUMBER	d_chapter/5/cal/calc.h	1;"	d
+NUMBER	d_chapter/5/cal/make/calc.h	1;"	d
+OCTAL	g_chapter/2/print.c	6;"	d	file:
+OUT	a_chapter/exercise/printByWord.c	3;"	d	file:
+OUT	a_chapter/exercise/printHistogram.c	4;"	d	file:
+OUT	a_chapter/wctest/wc.c	3;"	d	file:
+ProcessArgs	g_chapter/2/print.c	/^void ProcessArgs(int argc, char *argv[], int *output)$/;"	f
+SPACE	a_chapter/exercise/exercise21.c	6;"	d	file:
+TAB	a_chapter/exercise/exercise21.c	7;"	d	file:
+__IO_H__	d_chapter/3/cal/io.h	2;"	d
+__STACK_H__	d_chapter/3/cal/stack.h	2;"	d
+addtree	f_chapter/5/tree.c	/^struct tnode *addtree(struct tnode *p, char *w)$/;"	f
+addtree	f_chapter/5/wc/tree.c	/^struct tnode *addtree(struct tnode *p, char *w)$/;"	f
+afree	e_chapter/6/sort.c	/^void afree(char *p) \/* free storage pointed to by p *\/$/;"	f
+afree	e_chapter/6/sort.s	/^afree:$/;"	l
+alloc	e_chapter/6/sort.c	/^char *alloc(int n) \/* return pointer to n characters *\/$/;"	f
+alloc	e_chapter/6/sort.s	/^alloc:$/;"	l
+allocbuf	e_chapter/6/sort.c	/^static char allocbuf[ALLOCSIZE]; \/* storage for alloc *\/$/;"	v	file:
+allocp	e_chapter/6/sort.c	/^static char *allocp = allocbuf; \/* next free position *\/$/;"	v	file:
+allocp	e_chapter/6/sort.s	/^allocp:$/;"	l
+binsearch	c_chapter/3/binSample.c	/^int binsearch(int x, int v[], int n) {$/;"	f
+binsearch	c_chapter/3/binsearch.c	/^int binsearch(int x, int v[], int n)$/;"	f
+binsearch2	c_chapter/3/binSample.c	/^int binsearch2(int x, int v[], int n) {$/;"	f
+bitcount	b_chapter/11/bitcount.c	/^int bitcount(unsigned x)$/;"	f
+bitcount2	b_chapter/11/bitcount.c	/^int bitcount2(unsigned x)$/;"	f
+buf	d_chapter/3/cal/calculator.c	/^char buf[BUFSIZE];		\/* buffer for ungetch *\/$/;"	v
+buf	d_chapter/3/cal/io.c	/^static char buf[BUFSIZE];		\/* buffer for ungetch *\/$/;"	v	file:
+buf	d_chapter/5/cal/getch.c	/^char buf[BUFSIZE];		\/* buffer for ungetch *\/$/;"	v
+buf	d_chapter/5/cal/make/getch.c	/^char buf[BUFSIZE];		\/* buffer for ungetch *\/$/;"	v
+buf	f_chapter/5/tree.c	/^char buf[BUFSIZE]; \/* buffer for ungetch *\/$/;"	v
+buf	f_chapter/5/wc/io.h	/^static char buf[BUFSIZE]; \/* buffer for ungetch *\/$/;"	v
+bufp	d_chapter/3/cal/calculator.c	/^int bufp = 0;			\/* next free position in buf *\/$/;"	v
+bufp	d_chapter/3/cal/io.c	/^static int bufp = 0;			\/* next free position in buf *\/$/;"	v	file:
+bufp	d_chapter/5/cal/getch.c	/^int bufp = 0;			\/* next free position in buf *\/$/;"	v
+bufp	d_chapter/5/cal/make/getch.c	/^int bufp = 0;			\/* next free position in buf *\/$/;"	v
+bufp	f_chapter/5/tree.c	/^int bufp = 0; \/* next free position in buf *\/$/;"	v
+bufp	f_chapter/5/wc/io.h	/^static int bufp = 0; \/* next free position in buf *\/$/;"	v
+can_print	g_chapter/2/print.c	/^int can_print(int ch)$/;"	f
+copy	a_chapter/charArray.c	/^void copy(char to[], char from[])$/;"	f
+copy	a_chapter/longestLine.c	/^void copy(void)$/;"	f
+count	f_chapter/5/tree.c	/^	int count;		\/* number of occurrences *\/$/;"	m	struct:tnode	file:
+count	f_chapter/5/wc/tree.h	/^	int count;		\/* number of occurrences *\/$/;"	m	struct:tnode
+day_of_year	e_chapter/7/day.c	/^int day_of_year(int year, int month, int day)$/;"	f
+day_of_year	e_chapter/9/day.c	/^int day_of_year(int year, int month, int day)$/;"	f
+day_of_year_pointer	e_chapter/7/day.c	/^int day_of_year_pointer(int year, int month, int day)$/;"	f
+daytab	e_chapter/7/day.c	/^static char daytab[2][13] = {$/;"	v	file:
+daytab	e_chapter/9/day.c	/^static int daytab[2][13] = {$/;"	v	file:
+escape	c_chapter/4/escape.c	/^void escape(char s[], char t[])$/;"	f
+f	f_chapter/8/a.c	/^	float f;$/;"	m	struct:st	file:
+f	f_chapter/8/b.c	/^	float f;$/;"	m	union:un	file:
+filecopy	g_chapter/5/cat.c	/^void filecopy(FILE *ifp, FILE *ofp)    $/;"	f
+filecopy	g_chapter/6/cat.c	/^void filecopy(FILE *ifp, FILE *ofp)    $/;"	f
+getLine	e_chapter/6/sort.c	/^int getLine(char s[], int lim)$/;"	f
+getLine	e_chapter/6/sort.s	/^getLine:$/;"	l
+getch	d_chapter/3/cal/calculator.c	/^int getch(void)		\/* get a (possibly pushed-back) character *\/$/;"	f
+getch	d_chapter/3/cal/io.c	/^int getch(void)		\/* get a (possibly pushed-back) character *\/$/;"	f
+getch	d_chapter/5/cal/getch.c	/^int getch(void)		\/* get a (possibly pushed-back) character *\/$/;"	f
+getch	d_chapter/5/cal/make/getch.c	/^int getch(void)		\/* get a (possibly pushed-back) character *\/$/;"	f
+getch	f_chapter/5/tree.c	/^int getch(void) \/* get a (possibly pushed-back) character *\/$/;"	f
+getch	f_chapter/5/wc/io.c	/^static int getch(void) \/* get a (possibly pushed-back) character *\/$/;"	f	file:
+getline2	a_chapter/exercise/exercise21.c	/^int getline2(char s[], int lim)$/;"	f
+getline2	a_chapter/longestLine.c	/^int getline2(void)$/;"	f
+getline2	d_chapter/strmatch.c	/^int getline2(char s[], int lim)$/;"	f
+getline2	d_chapter/strmatch.s	/^getline2:$/;"	l
+getline2	e_chapter/10/find.c	/^int getline2(char s[], int lim)$/;"	f
+getline3	e_chapter/10/find.c	/^int getline3(char *line, int max)$/;"	f
+getlineTest	a_chapter/charArray.c	/^int getlineTest(char s[],int lim)$/;"	f
+getop	d_chapter/3/cal/calculator.c	/^int getop(char s[])$/;"	f
+getop	d_chapter/3/cal/io.c	/^int getop(char s[])$/;"	f
+getop	d_chapter/5/cal/getop.c	/^int getop(char s[])$/;"	f
+getop	d_chapter/5/cal/make/getop.c	/^int getop(char s[])$/;"	f
+getword	f_chapter/5/tree.c	/^int getword(char *word, int lim)$/;"	f
+getword	f_chapter/5/wc/io.c	/^int getword(char *word, int lim)$/;"	f
+i	f_chapter/8/a.c	/^	int i;$/;"	m	struct:st	file:
+i	f_chapter/8/b.c	/^	int i;$/;"	m	union:un	file:
+isupper1	g_chapter/8/isupper.c	/^int isupper1(int c)$/;"	f
+isupper2	g_chapter/8/isupper.c	/^int isupper2(int c)$/;"	f
+left	f_chapter/5/tree.c	/^	struct tnode *left;	\/* left child *\/$/;"	m	struct:tnode	typeref:struct:tnode::tnode	file:
+left	f_chapter/5/wc/tree.h	/^	struct tnode *left;	\/* left child *\/$/;"	m	struct:tnode	typeref:struct:tnode::tnode
+line	a_chapter/longestLine.c	/^char line[MAXLINE];     \/* current input line *\/$/;"	v
+lineptr	e_chapter/6/sort.c	/^char *lineptr[MAXLINES]; \/* pointers to text lines *\/$/;"	v
+longest	a_chapter/longestLine.c	/^char longest[MAXLINE];  \/* longest line saved here *\/  $/;"	v
+lower1	b_chapter/11/lower.c	/^int lower1(int c)$/;"	f
+lower1	b_chapter/11/tlower.c	/^int lower1(int c)$/;"	f
+lower2	b_chapter/11/lower.c	/^int lower2(int c)$/;"	f
+lower2	b_chapter/11/tlower.c	/^int lower2(int c)$/;"	f
+lower3	b_chapter/11/lower.c	/^int lower3(int c)$/;"	f
+lower3	b_chapter/11/tlower.c	/^int lower3(int c)$/;"	f
+main	a_chapter/charArray.c	/^main()$/;"	f
+main	a_chapter/charCount.c	/^main ( )$/;"	f
+main	a_chapter/charCount2.c	/^main ( )$/;"	f
+main	a_chapter/count12.c	/^main ( )$/;"	f
+main	a_chapter/exercise/eof.c	/^int main(void)$/;"	f
+main	a_chapter/exercise/exercise2.c	/^int main(void)$/;"	f
+main	a_chapter/exercise/exercise21.c	/^int main(void)$/;"	f
+main	a_chapter/exercise/hello.c	/^main()$/;"	f
+main	a_chapter/exercise/histogramRef.c	/^int main(void)$/;"	f
+main	a_chapter/exercise/printByWord.c	/^main ( )$/;"	f
+main	a_chapter/exercise/printEOF.c	/^main()$/;"	f
+main	a_chapter/exercise/printHistogram.c	/^main ( )$/;"	f
+main	a_chapter/getchar.c	/^main ( )$/;"	f
+main	a_chapter/lineCount.c	/^main ( )$/;"	f
+main	a_chapter/longestLine.c	/^main()$/;"	f
+main	a_chapter/temperature.c	/^main()$/;"	f
+main	a_chapter/temperature2.c	/^main()$/;"	f
+main	a_chapter/wctest/generateInputs.c	/^int main(void)$/;"	f
+main	a_chapter/wctest/wc.c	/^main ( )$/;"	f
+main	b_chapter/1/test/valueRange.c	/^void main()$/;"	f
+main	b_chapter/1/variable.c	/^void main()$/;"	f
+main	b_chapter/11/bitcount.c	/^void main()$/;"	f
+main	b_chapter/11/lower.c	/^void main()$/;"	f
+main	b_chapter/11/tlower.c	/^void main()$/;"	f
+main	b_chapter/12/order.c	/^int main()$/;"	f
+main	b_chapter/8/squeeze.c	/^void main()$/;"	f
+main	b_chapter/scale.c	/^int main()$/;"	f
+main	c_chapter/3/binSample.c	/^int main(void) {$/;"	f
+main	c_chapter/3/binsearch.c	/^void main()$/;"	f
+main	c_chapter/4/escape.c	/^int main()$/;"	f
+main	c_chapter/5/shellsort.c	/^int main()$/;"	f
+main	c_chapter/5/t.c	/^int main()$/;"	f
+main	d_chapter/10/qsort.c	/^int main()$/;"	f
+main	d_chapter/11/swap.c	/^int main(void) {$/;"	f
+main	d_chapter/3/cal/cal.c	/^main()$/;"	f
+main	d_chapter/3/cal/calculator.c	/^main()$/;"	f
+main	d_chapter/5/cal/main.c	/^main()$/;"	f
+main	d_chapter/5/cal/make/main.c	/^main()$/;"	f
+main	d_chapter/strmatch.c	/^main()$/;"	f
+main	d_chapter/strmatch.s	/^main:$/;"	l
+main	d_chapter/test.c	/^main()$/;"	f
+main	d_chapter/test.s	/^main:$/;"	l
+main	e_chapter/10/echo.c	/^int main(int argc, char *argv[])$/;"	f
+main	e_chapter/10/echo2.c	/^int main(int argc, char *argv[])$/;"	f
+main	e_chapter/10/find.c	/^main(int argc, char *argv[])$/;"	f
+main	e_chapter/11/hello.c	/^main()$/;"	f
+main	e_chapter/11/hello.s	/^main:$/;"	l
+main	e_chapter/5/strcpy.c	/^int main()$/;"	f
+main	e_chapter/5/strcpy2.c	/^int main()$/;"	f
+main	e_chapter/6/sort.c	/^main()$/;"	f
+main	e_chapter/6/sort.s	/^main:$/;"	l
+main	e_chapter/7/day.c	/^int main(void)$/;"	f
+main	e_chapter/9/day.c	/^int main(void)$/;"	f
+main	f_chapter/5/tree.c	/^main()$/;"	f
+main	f_chapter/5/wc/main.c	/^main()$/;"	f
+main	g_chapter/1/convert.c	/^int main(int argc, char **argv)$/;"	f
+main	g_chapter/2/print.c	/^int main(int argc, char *argv[])$/;"	f
+main	g_chapter/3/dd.c	/^void main()$/;"	f
+main	g_chapter/3/main.c	/^int main()$/;"	f
+main	g_chapter/3/test.c	/^int main()$/;"	f
+main	g_chapter/4/minscanf.c	/^main()$/;"	f
+main	g_chapter/5/cat.c	/^main(int argc, char *argv[])$/;"	f
+main	g_chapter/6/cat.c	/^main(int argc, char *argv[])$/;"	f
+main	g_chapter/8/isupper.c	/^main()$/;"	f
+main	h_chapter/2/copy.c	/^main() \/* copy input to output *\/$/;"	f
+max	a_chapter/longestLine.c	/^int max;                \/* maximum length seen so far *\/$/;"	v
+minprintf	g_chapter/3/minprintf.c	/^void minprintf(char *fmt, ...)$/;"	f
+minscanf	g_chapter/4/minscanf.c	/^int minscanf(char *fmt, ...)$/;"	f
+month_day	e_chapter/7/day.c	/^int month_day(int year, int yearday, int *pmonth, int *pday)$/;"	f
+month_day	e_chapter/9/day.c	/^int month_day(int year, int yearday, int *pmonth, int *pday)$/;"	f
+month_day_pointer	e_chapter/7/day.c	/^void month_day_pointer(int year, int yearday, int *pmonth, int *pday)$/;"	f
+obj	d_chapter/3/cal/Makefile	/^obj = cal.o io.o stack.o$/;"	m
+obj	d_chapter/5/cal/Makefile	/^obj = main.o stack.o getop.o getch.o$/;"	m
+obj	d_chapter/5/cal/make/Makefile	/^obj = main.o stack.o getop.o getch.o$/;"	m
+pHello	e_chapter/11/hello.c	/^void pHello()$/;"	f
+pHello	e_chapter/11/hello.s	/^pHello:$/;"	l
+pattern	d_chapter/strmatch.c	/^char pattern[] = "ould"; \/* pattern to search for *\/$/;"	v
+pattern	d_chapter/strmatch.s	/^pattern:$/;"	l
+pop	d_chapter/3/cal/calculator.c	/^double pop()$/;"	f
+pop	d_chapter/3/cal/stack.c	/^double pop()$/;"	f
+pop	d_chapter/5/cal/make/stack.c	/^double pop()$/;"	f
+pop	d_chapter/5/cal/stack.c	/^double pop()$/;"	f
+push	d_chapter/3/cal/calculator.c	/^void push(double f)$/;"	f
+push	d_chapter/3/cal/stack.c	/^void push(double f)$/;"	f
+push	d_chapter/5/cal/make/stack.c	/^void push(double f)$/;"	f
+push	d_chapter/5/cal/stack.c	/^void push(double f)$/;"	f
+qsort	d_chapter/10/qsort.c	/^void qsort(int v[], int left, int right)$/;"	f
+qsort	e_chapter/6/sort.c	/^void qsort(char *v[], int left, int right)$/;"	f
+qsort	e_chapter/6/sort.s	/^qsort:$/;"	l
+readlines	e_chapter/6/sort.c	/^int readlines(char *lineptr[], int maxlines)$/;"	f
+readlines	e_chapter/6/sort.s	/^readlines:$/;"	l
+right	f_chapter/5/tree.c	/^	struct tnode *right;	\/* right child *\/$/;"	m	struct:tnode	typeref:struct:tnode::tnode	file:
+right	f_chapter/5/wc/tree.h	/^	struct tnode *right;	\/* right child *\/$/;"	m	struct:tnode	typeref:struct:tnode::tnode
+shellsort	c_chapter/5/shellsort.c	/^void shellsort(int v[], int n)$/;"	f
+shellsort	c_chapter/5/t.c	/^void shellsort(int v[], int n)$/;"	f
+sixchar1	b_chapter/1/variable.c	/^int sixchar1 = 1;$/;"	v
+sixchar2	b_chapter/1/variable.c	/^int sixchar2 = 2;$/;"	v
+sp	d_chapter/3/cal/calculator.c	/^int sp = 0;			\/* next free stack position *\/$/;"	v
+sp	d_chapter/3/cal/stack.c	/^static int sp = 0;			\/* next free stack position *\/$/;"	v	file:
+sp	d_chapter/5/cal/make/stack.c	/^int sp = 0;			\/* next free stack position *\/$/;"	v
+sp	d_chapter/5/cal/stack.c	/^int sp = 0;			\/* next free stack position *\/$/;"	v
+squeeze	b_chapter/8/squeeze.c	/^int squeeze(char s[], char t[])$/;"	f
+st	f_chapter/8/a.c	/^struct st$/;"	s	file:
+strcpy2	e_chapter/5/strcpy.c	/^strcpy2 (char *dest, const char *src)$/;"	f
+strcpy2	e_chapter/5/strcpy2.c	/^strcpy2 (char *dest, const char *src)$/;"	f
+strindex	d_chapter/strmatch.c	/^int strindex(char s[], char t[])$/;"	f
+strindex	d_chapter/strmatch.s	/^strindex:$/;"	l
+swap	d_chapter/10/qsort.c	/^void swap(int v[], int i, int j)$/;"	f
+swap	d_chapter/11/swap.c	46;"	d	file:
+swap	e_chapter/6/sort.c	/^void swap(char *v[], int i, int j)$/;"	f
+swap	e_chapter/6/sort.s	/^swap:$/;"	l
+t	f_chapter/8/a.c	/^struct st t;$/;"	v	typeref:struct:st
+talloc	f_chapter/5/tree.c	/^struct tnode *talloc(void)$/;"	f
+talloc	f_chapter/5/wc/tree.c	/^static struct tnode *talloc(void)$/;"	f	file:
+tnode	f_chapter/5/tree.c	/^struct tnode {		\/* the tree node: *\/$/;"	s	file:
+tnode	f_chapter/5/wc/tree.h	/^struct tnode {		\/* the tree node: *\/$/;"	s
+treeprint	f_chapter/5/tree.c	/^void treeprint(struct tnode *p)$/;"	f
+treeprint	f_chapter/5/wc/tree.c	/^void treeprint(struct tnode *p)$/;"	f
+u	f_chapter/8/b.c	/^union un u;$/;"	v	typeref:union:un
+un	f_chapter/8/b.c	/^union un$/;"	u	file:
+unescape	c_chapter/4/escape.c	/^void unescape(char s[], char t[])$/;"	f
+ungetch	d_chapter/3/cal/calculator.c	/^void ungetch(int c)		\/* push character back on input *\/$/;"	f
+ungetch	d_chapter/3/cal/io.c	/^void ungetch(int c)		\/* push character back on input *\/$/;"	f
+ungetch	d_chapter/5/cal/getch.c	/^void ungetch(int c)		\/* push character back on input *\/$/;"	f
+ungetch	d_chapter/5/cal/make/getch.c	/^void ungetch(int c)		\/* push character back on input *\/$/;"	f
+ungetch	f_chapter/5/tree.c	/^void ungetch(int c) \/* push character back on input *\/$/;"	f
+ungetch	f_chapter/5/wc/io.c	/^static void ungetch(int c) \/* push character back on input *\/$/;"	f	file:
+val	d_chapter/3/cal/calculator.c	/^double val[MAXVAL]; \/* value stack *\/$/;"	v
+val	d_chapter/3/cal/stack.c	/^static double val[MAXVAL];	\/* value stack *\/$/;"	v	file:
+val	d_chapter/5/cal/make/stack.c	/^double val[MAXVAL];	\/* value stack *\/$/;"	v
+val	d_chapter/5/cal/stack.c	/^double val[MAXVAL];	\/* value stack *\/$/;"	v
+word	f_chapter/5/tree.c	/^	char *word;		\/* pointers to the text *\/$/;"	m	struct:tnode	file:
+word	f_chapter/5/wc/tree.h	/^	char *word;		\/* pointers to the text *\/$/;"	m	struct:tnode
+writelines	e_chapter/6/sort.c	/^void writelines(char *lineptr[], int nlines)$/;"	f
+writelines	e_chapter/6/sort.s	/^writelines:$/;"	l

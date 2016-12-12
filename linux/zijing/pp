@@ -1,0 +1,32 @@
+#!/bin/sh 
+inp1=111
+inp1=222
+inp1=333
+
+inputfile=addrulein1
+outputfile=addruleout1
+rm -fr $inputfile
+rm -fr $outputfile
+mknod $inputfile p
+touch $outputfile
+
+#file description 7 for out and 8 for in 
+exec 7<>$outputfile
+exec 8<>$inputfile
+
+telnet $ip <&8 >&7 &
+
+sleep 1; echo $inp1 >> $inputfile
+sleep 1; echo $inp2 >> $inputfile
+sleep 1; echo $inp3 >> $inputfile
+
+tail -f $outputfile &
+
+while true
+do
+  read str
+  if [ $str = "quit" -o $str = "exit" ]
+  then echo $str >> $inputfile ; exit
+  else echo $str >> $inputfile
+  fi
+done

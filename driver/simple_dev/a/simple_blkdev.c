@@ -1,9 +1,9 @@
 #include <linux/init.h>
 #include <linux/module.h>
 
-#define SIMPLE_BLKDEV_DEVICEMAJOR	COMPAQ_SMART2_MAJOR
-#define SIMPLE_BLKDEV_DISKNAME		"simp_blkdev"
-#define SIMPLE_BLKDEV_BYTES		(16 * 1024 * 1024)
+#define SIMP_BLKDEV_DEVICEMAJOR	COMPAQ_SMART2_MAJOR
+#define SIMP_BLKDEV_DISKNAME	"simp_blkdev"
+#define SIMP_BLKDEV_BYTES	(16 * 1024 * 1024)
 
 static struct request_queue *simp_blkdev_queue;
 static struct gendisk *simp_blkdev_disk;
@@ -35,7 +35,7 @@ simp_blkdev_init(void)
 	strcpy(simp_blkdev_disk->diskname, SIMP_BLKDEV_DISKNAME);
 	simp_blkdev_disk->major = SIMP_BLKDEV_MAJOR;
 	simp_blkdev_disk->first_minor = 0;
-	simp_blkdev_disk->fops = simple_blkdev_fops;
+	simp_blkdev_disk->fops = simp_blkdev_fops;
 	simp_blkdev_disk->queue = simp_blkdev_queue;
 	set_capacity(simp_blkdev_disk, SIMP_BLKDEV_BYTES >> 9);
 	add_disk(simp_blkdev_disk);
@@ -60,4 +60,33 @@ module_exit(simp_blkdev_exit);
 
 static void simp_blkdev_do_request(struct request_queue *q)
 {
+	struct request *req;
+	while ((req = elv_next_request(q)) != NULL) {
+		if ((req->sector + req->current_nr_sectors) << 9
+			> SIMP_BLKDEV_BYTES) {
+			printk(KERN_ERR SIMP_BLKDEV_DISKNAME
+					":bad request: block=%llu, count=%u\n",
+					(unsigned long long)req->sector,
+					req->current_nr_sectors);
+			end_request(req, 0);
+			continue;
+		}
+
+		switch (rq_data_dir(req)) {
+		case READ:
+			memcpy(req->buffer,
+				simp_blkdev_data + (req->sector << 9),
+				req->current_nr_sectors << 9);
+			end_request(req, 1);
+			break;
+		case WRITE:
+			memcpy(simp_blkdev_data + (req->sector << 9),
+				req->buffer, req->current_nr_sectors << 9);
+			end_request(req, 1);
+			break;
+		default:
+			/* no default case because rq_data_dir(req) is 1 bit */
+			break;
+		}
+	}
 }

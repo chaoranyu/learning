@@ -5,7 +5,7 @@
 int sum; /* this data is shared by the thread(s) */
 void *runner(void *param); /* the thread */
 
-main(int argc, char *argv[])
+void main(int argc, char *argv[])
 {
 	pthread_t tid; /* the thread identifier */
 	pthread_attr_t attr; /* set of thread attributes */

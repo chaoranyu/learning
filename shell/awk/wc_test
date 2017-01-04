@@ -1,0 +1,7 @@
+#!/bin/bash
+input=$1
+awk '{ chars += length($0) + 1  # add one for the \n
+  words += NF
+}
+
+END{ print NR, words, chars }' ${input}

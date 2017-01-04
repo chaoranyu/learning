@@ -1,0 +1,8 @@
+BEGIN { FS = "[^A-Za-z]+" }
+
+{ for(i = 1 ; i <= NF ; i++)  word[$i] = "" }
+
+END { delete word[""]
+      for ( i in word )  cnt++
+      print cnt
+}

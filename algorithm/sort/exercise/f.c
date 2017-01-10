@@ -14,7 +14,7 @@ void main()
     printf("\n");
     printf("%d\n", d);
 
-    int b = 0xFFFFFFFF;
+    int b = 0xFFFFFFFC;
     char c = b;
     printf("%d\n", c);
     float f = 3.1415F;

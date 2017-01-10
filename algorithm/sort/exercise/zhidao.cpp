@@ -3,17 +3,17 @@ using namespace std;
 
 class C
 {
-    public:
-        C(){ iCount++; }
-        static int NofC(){ return iCount; }
+public:
+	C() { iCount++; }
+	static int NofC() { return iCount; }
 
-    private:
-        static int iCount;
+private:
+	static int iCount;
 };
 int C::iCount = 0;
 
 int main()
-{   int t,n;
+{   int t, n;
     C *cn;
     cin >> t;
     while (t--)

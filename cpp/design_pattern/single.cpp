@@ -13,7 +13,7 @@ public:
 	}
 
 private:
-	Singleton();
+	Singleton(){}
 	~Singleton();
 	Singleton(const Singleton&);
 	Singleton operator=(const Singleton&);

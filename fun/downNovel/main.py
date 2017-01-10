@@ -42,7 +42,7 @@ def writeFile(dirname, filename, content):
     pass
 
 if __name__ == '__main__':
-    m = getBookMemu('http://www.biquge.la/book/14/')
+    m = getBookMemu('http://www.qu.la/book/24868/')
     for c in m.keys():
         url = c
         name = m[c]

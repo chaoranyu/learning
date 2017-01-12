@@ -3,16 +3,17 @@
 using namespace std;
 
 template<typename Comparable>
-void insertionSort(vector<Comparable> &a)
+void selectionSort(vector<Comparable> &a)
 {
-	int j;
+	int i, j, min;
 
-	for (int p = 1; p < a.size(); p++) {
-		auto tmp = std::move(a[p]);
-		for (j = p; j > 0 && tmp < a[j-1]; j--) {
-			a[j] = std::move(a[j-1]);
+	for (i = 0; i < a.size() - 1; i++) {
+		min = i;
+		for (j = i + 1; j < a.size(); j++) {
+            if (a[min] > a[j])
+                min = j;
 		}
-        a[j] = std::move(tmp);
+        std::swap(a[i], a[min]);
 	}
 }
 
@@ -30,7 +31,7 @@ int main()
 		std::cout << iter << "\t";
 	std::cout << std::endl;
 
-	insertionSort(v);
+	selectionSort(v);
 
 	for(auto iter : v)
 		std::cout << iter << "\t";

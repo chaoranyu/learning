@@ -2,7 +2,7 @@ import java.util.*;    //添加引用
 
 public class Folder extends AbstractFile {
 
-    private List<AbstractFile> childList ;
+    private List<AbstractFile> childList;
 
     public Folder(String name) {
         this.name = name;

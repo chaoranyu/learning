@@ -1,0 +1,41 @@
+Nyaruko (2012-09-10)
+
+Binary to encrypted text filter.
+
+Given some input in stdin, Nyaruko will generate a C code that
+reproduces this input on stdout:
+
+   ./nyaruko < input.bin > output.c
+
+   gcc output.c -o output
+   ./output > regenerated.bin
+
+Output is encrypted, but both key and data are included in the output.
+To separate the key from the data:
+
+   bash output.c > key.c
+   perl output.c > data.c
+
+Concatenate them back to get back something functionally equivalent to
+the original output.c:
+
+   cat key.c data.c > output.c
+   cat data.c key.c > output.c
+
+data.c by itself still compiles and runs, but generates a different
+message on stdout.  data.c combined with an incorrect key.c will still
+compile and run, but the output will be totally random.
+
+By default, Nyaruko generates a unique random key using /dev/urandom.
+Specifying an extra argument will make this key deterministic:
+
+   ./nyaruko seed.txt < input.bin > output.c
+
+This should always be done on systems that do not have /dev/urandom.
+
+Template is based on Nyaruko, from "Haiyore!  Nyaruko-san".
+
+Nyaruko won the "most surreptitious" award for the 21st IOCCC.
+
+--
+omoikane@uguu.org - http://uguu.org/

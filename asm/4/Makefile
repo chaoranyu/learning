@@ -1,3 +1,3 @@
 .PHONY: clean
 clean:
-		rm -f *.o *.out
+		rm -f *.i *.o *.out

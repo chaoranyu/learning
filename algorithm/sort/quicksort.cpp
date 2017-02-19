@@ -6,21 +6,21 @@ template<typename Comparable>
 const Comparable & median3(vector<Comparable> &a, int left, int right);
 
 template<typename Comparable>
-void quickSort(vector<Comparable> &a, int left, int right);
+void quicksort(vector<Comparable> &a, int left, int right);
 
 template<typename Comparable>
 void insertionSort(vector<Comparable> &a, int left, int right);
 
 // QuickSort algorithm (driver)
 template<typename Comparable>
-void quickSort(vector<Comparable> &a)
+void quicksort(vector<Comparable> &a)
 {
-    quickSort(a, 0, a.size() - 1);
+    quicksort(a, 0, a.size() - 1);
 }
 
 // Internal quicksort method that makes recursive calls
 template<typename Comparable>
-void quickSort(vector<Comparable> &a, int left, int right)
+void quicksort(vector<Comparable> &a, int left, int right)
 {
     if (left + 10 <= right) {
         Comparable pivot = median3(a, left, right);
@@ -37,8 +37,8 @@ void quickSort(vector<Comparable> &a, int left, int right)
 
         std::swap(a[i], a[right-1]); // Restore pivot
 
-        quickSort(a, left, i - 1);
-        quickSort(a, i + 1, right);
+        quicksort(a, left, i - 1);
+        quicksort(a, i + 1, right);
     } else {
         insertionSort(a, left, right);
     }
@@ -97,7 +97,7 @@ int main()
         std::cout << a << "\t";
     std::cout << std::endl;
 
-    quickSort(v);
+    quicksort(v);
 
     for(auto &a : v)
         std::cout << a << "\t";

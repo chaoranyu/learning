@@ -19,6 +19,7 @@ int fibonacci_2(int i)
     fib[i] = fibonacci_2(i-1) + fibonacci_2(i-2);
     return fib[i];
 }
+
 int main()
 {
     int i = 40;

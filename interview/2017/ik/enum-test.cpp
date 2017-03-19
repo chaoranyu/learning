@@ -11,12 +11,16 @@ enum week {
     DAY_NUM
 };
 
-//enum week test;
-week test; // both right
+enum week test_a;
+week test_b; // both right
 
 int main() {
-    std::cout << sizeof(test) << std::endl;
+    std::cout << sizeof(test_a) << std::endl;
     std::cout << sizeof(week) << std::endl;
+
+    //week e_day = reinterpret_cast<week>(2); // wrong
+    week e_day = THURSDAY;
+    std::cout << e_day << std::endl;
 
     return 0;
 }

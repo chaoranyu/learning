@@ -5,7 +5,7 @@ typedef struct {
     char b;
     short c;
     unsigned d;
-    struct s {
+    struct s { // only a type, not variable
         unsigned u : 3;
         unsigned v : 2;
     };

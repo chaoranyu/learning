@@ -14,7 +14,7 @@ typedef struct {
 
 static syn_cookie_t g_syn_cookie = {0x2017, 0x0, 0x0321, 0};
 
-void main()
+main()
 {
     printf("0x%x\t0x%x\t0x%x\t0x%x\n", g_syn_cookie.random_key.current, g_syn_cookie.random_key.previous, g_syn_cookie.random_key.updated, g_syn_cookie.timestamp); 
 

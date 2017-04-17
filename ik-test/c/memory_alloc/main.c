@@ -7,7 +7,7 @@ typedef struct test {
     int b;
 } test_t;
 
-void main() {
+main() {
     /*
     int *p = NULL, *q = NULL;
     init_allocator(9, 4);

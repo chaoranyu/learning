@@ -1,5 +1,5 @@
 #include "static.h"
 
-void main() {
+main() {
     print();
 }

@@ -2,7 +2,7 @@
 //
 
 
-void main() {
+main() {
     void *data;
     data = malloc(10);
 

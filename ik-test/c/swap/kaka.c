@@ -95,56 +95,55 @@ void test1()
 
 void test2()
 {
-    const int ARRAY_SIZE = 50000000;
+    const int ARRAY_SIZE = 100000000;
 
     int *arr = (int *)malloc(ARRAY_SIZE * sizeof(int));
     for (int i = 0; i < ARRAY_SIZE; i++)
         arr[i] = i; 
 
     int TEST_CNT = 5;
-    clock_t start, finish;
-    double total_time;
+    time_t start, finish;
+    time_t total_time;
 
     //////////////////// swap1 test
-    total_time = 0.0f;
-
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
             swap1(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 1: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 1: %10d s\n", total_time/TEST_CNT); 
 
     //////////////////// swap2 test
-    total_time = 0.0f;
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
             swap2(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 2: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 2: %10d s\n", total_time/TEST_CNT); 
 
     //////////////////// swap3 test
-    total_time = 0.0f;
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
             swap3(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 3: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 3: %10d s\n", total_time/TEST_CNT); 
 }

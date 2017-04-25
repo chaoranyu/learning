@@ -19,6 +19,7 @@
 // it's wrong when gcc -O0
 #define swap3(a, b) do { (a) ^= (b) ^= (a) ^= (b); } while(0)
 
+long long get_cycle_count();
 void test1();
 void test2();
 
@@ -36,6 +37,12 @@ int main()
 
     return 0;
 }
+
+inline long long get_cycle_count() {
+    long long hi, lo;  
+    __asm__ __volatile__ ("rdtsc" : "=a"(lo), "=d"(hi));  
+    return ( (long long)lo)|( ((long long)hi)<<32 ); 
+}  
 
 void test1()
 {
@@ -102,49 +109,51 @@ void test2()
         arr[i] = i; 
 
     int TEST_CNT = 5;
-    clock_t start, finish;
-    double total_time;
+    long long ticks_start, ticks_end;
+    long long total_time;
 
     //////////////////// swap1 test
-    total_time = 0.0f;
-
+    total_time = 0LL;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        ticks_start = get_cycle_count();
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
             swap1(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        ticks_end = get_cycle_count();
+
+        total_time += ticks_end - ticks_start;
     }
-    printf("swap 1: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 1: %lld ticks\n", total_time/TEST_CNT); 
 
     //////////////////// swap2 test
-    total_time = 0.0f;
+    total_time = 0LL;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        ticks_start = get_cycle_count();
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
-            swap2(arr[i], arr[i+1]);
+            swap1(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        ticks_end = get_cycle_count();
+
+        total_time += ticks_end - ticks_start;
     }
-    printf("swap 2: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 2: %lld ticks\n", total_time/TEST_CNT); 
 
     //////////////////// swap3 test
-    total_time = 0.0f;
+    total_time = 0LL;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        start = clock();
+        ticks_start = get_cycle_count();
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
-            swap3(arr[i], arr[i+1]);
+            swap1(arr[i], arr[i+1]);
 
-        finish = clock();
-        total_time += 1000 * (finish - start) / CLOCKS_PER_SEC;
+        ticks_end = get_cycle_count();
+
+        total_time += ticks_end - ticks_start;
     }
-    printf("swap 3: %.2f ms\n", total_time/TEST_CNT); 
+    printf("swap 3: %lld ticks\n", total_time/TEST_CNT); 
 }

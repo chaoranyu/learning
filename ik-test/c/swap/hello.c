@@ -12,7 +12,7 @@
 // There is a problem when &a == &b
 #define swap2(a, b) do {    \
         (a) ^= (b);    \
-        (b) ^= (b);    \
+        (b) ^= (a);    \
         (a) ^= (b);    \
     } while(0)
 

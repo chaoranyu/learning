@@ -2,24 +2,27 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define swap1(a, b) do {    \
-    /*typeof(a) tmp;*/      \
-        int tmp = (a);      \
-        (a) = (b);          \
-        (b) = tmp;          \
-    } while(0)
+void swap1(int *a, int *b)
+{
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
 
 // There is a problem when &a == &b
-#define swap2(a, b) do {    \
-        (a) ^= (b);    \
-        (b) ^= (a);    \
-        (a) ^= (b);    \
-    } while(0)
+void swap2(int *a, int *b)
+{
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
+}
 
 // it's wrong when gcc -O0
-#define swap3(a, b) do { (a) ^= (b) ^= (a) ^= (b); } while(0)
+void swap3(int *a, int *b)
+{
+    *a ^= *b ^= *a ^= *b;
+}
 
-long long get_cycle_count();
 void test1();
 void test2();
 
@@ -38,12 +41,6 @@ int main()
     return 0;
 }
 
-inline long long get_cycle_count() {
-    long long hi, lo;  
-    __asm__ __volatile__ ("rdtsc" : "=a"(lo), "=d"(hi));  
-    return ( (long long)lo)|( ((long long)hi)<<32 ); 
-}  
-
 void test1()
 {
     int a, b;
@@ -52,108 +49,105 @@ void test1()
     printf("test1:\n");
     a = 0, b = 1;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap1(a, b);
+    swap1(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 1, b = 9;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap1(a, b);
+    swap1(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 4, b = 4;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap1(a, b);
+    swap1(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     //////////////////// swap2 test
     printf("test2:\n");
     a = 0, b = 1;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap2(a, b);
+    swap2(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 1, b = 9;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap2(a, b);
+    swap2(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 4, b = 4;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap2(a, b);
+    swap2(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     //////////////////// swap3 test
     printf("test3:\n");
     a = 0, b = 1;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap3(a, b);
+    swap3(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 1, b = 9;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap3(a, b);
+    swap3(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 
     a = 4, b = 4;
     printf("\ta = %d, b=%d ---> ", a, b);
-    swap3(a, b);
+    swap3(&a, &b);
     printf("a = %d, b=%d\n", a, b);
 }
 
 void test2()
 {
-    const int ARRAY_SIZE = 50000000;
+    const int ARRAY_SIZE = 100000000;
 
     int *arr = (int *)malloc(ARRAY_SIZE * sizeof(int));
     for (int i = 0; i < ARRAY_SIZE; i++)
         arr[i] = i; 
 
     int TEST_CNT = 5;
-    long long ticks_start, ticks_end;
-    long long total_time;
+    time_t start, finish;
+    time_t total_time;
 
     //////////////////// swap1 test
-    total_time = 0LL;
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        ticks_start = get_cycle_count();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
-            swap1(arr[i], arr[i+1]);
+            swap1(arr+i, arr+i+1);
 
-        ticks_end = get_cycle_count();
-
-        total_time += ticks_end - ticks_start;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 1: %lld ticks\n", total_time); 
+    printf("swap 1: %.2f s\n", (float)total_time/TEST_CNT); 
 
     //////////////////// swap2 test
-    total_time = 0LL;
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        ticks_start = get_cycle_count();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
-            swap1(arr[i], arr[i+1]);
+            swap2(arr+i, arr+i+1);
 
-        ticks_end = get_cycle_count();
-
-        total_time += ticks_end - ticks_start;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 2: %lld ticks\n", total_time); 
+    printf("swap 2: %.2f s\n", (float)total_time/TEST_CNT); 
 
     //////////////////// swap3 test
-    total_time = 0LL;
+    total_time = 0;
     for (int k = 0; k < TEST_CNT; k++)
     {
-        ticks_start = get_cycle_count();
+        start = time(NULL);
 
         for (int i = 0; i < ARRAY_SIZE - 1; i++)
-            swap1(arr[i], arr[i+1]);
+            swap3(arr+i, arr+i+1);
 
-        ticks_end = get_cycle_count();
-
-        total_time += ticks_end - ticks_start;
+        finish = time(NULL);
+        total_time += finish - start;
     }
-    printf("swap 3: %lld ticks\n", total_time); 
+    printf("swap 3: %.2f s\n", (float)total_time/TEST_CNT); 
 }

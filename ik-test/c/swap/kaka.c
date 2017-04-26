@@ -12,7 +12,7 @@
 // There is a problem when &a == &b
 #define swap2(a, b) do {    \
         (a) ^= (b);    \
-        (b) ^= (b);    \
+        (b) ^= (a);    \
         (a) ^= (b);    \
     } while(0)
 
@@ -117,7 +117,7 @@ void test2()
         finish = time(NULL);
         total_time += finish - start;
     }
-    printf("swap 1: %10d s\n", total_time/TEST_CNT); 
+    printf("swap 1: %.2f s\n", (float)total_time/TEST_CNT); 
 
     //////////////////// swap2 test
     total_time = 0;
@@ -131,7 +131,7 @@ void test2()
         finish = time(NULL);
         total_time += finish - start;
     }
-    printf("swap 2: %10d s\n", total_time/TEST_CNT); 
+    printf("swap 2: %.2f s\n", (float)total_time/TEST_CNT); 
 
     //////////////////// swap3 test
     total_time = 0;
@@ -145,5 +145,5 @@ void test2()
         finish = time(NULL);
         total_time += finish - start;
     }
-    printf("swap 3: %10d s\n", total_time/TEST_CNT); 
+    printf("swap 3: %.2f s\n", (float)total_time/TEST_CNT); 
 }

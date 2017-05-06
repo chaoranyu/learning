@@ -1,18 +1,36 @@
 #! /bin/bash
 
-echo "ufo" | sudo -S ifconfig enp0s8 down
+password="ufo"
 
-#echo -n "Option: "
-#read our_entry
-#echo "${our_entry}"
+interface_1="eno33554984"
+interface_2="eno50332208"
 
-#tool="${RTE_SDK}/tools/dpdk-setup.sh"
-#$tool
+## When RTE_SDK is not set, need to set RTE_SDK 
+if [ -z ${RTE_SDK} ]
+then
+    RTE_SDK='/home/yu/dpdk-16.11'
+fi
+
+# Insert IGB UIO module
+choice_1=16
+
+# Setup hugepage mappings for non-NUMA systems
+choice_2=19
+pages=512
+
+# Bind Ethernet/Crypto device to IGB UIO module 
+choice_3=22
+pci_path_1="0000:02:05.0"
+pci_path_2="0000:02:06.0"
 
 
-#cd $(dirname ${BASH_SOURCE[0]})/..
-#cd $(dirname ${BASH_SOURCE[0]})
-#export RTE_SDK=$PWD
+
+#############################################
+
+echo ${password} | sudo -S ifconfig $interface_1 down
+echo ${password} | sudo -S ifconfig $interface_2 down
+
+#############################################
 echo "------------------------------------------------------------------------------"
 echo " RTE_SDK exported as $RTE_SDK"
 echo "------------------------------------------------------------------------------"
@@ -324,7 +342,7 @@ set_non_numa_pages()
 	echo "  enter '64' to reserve 64 * 2MB pages"
 	echo -n "Number of pages: "
 	#read Pages
-    Pages=512
+    Pages=$pages
     echo "${Pages}"
 
 	echo "echo $Pages > /sys/kernel/mm/hugepages/hugepages-${HUGEPGSZ}/nr_hugepages" > .echo_tmp
@@ -442,7 +460,7 @@ bind_devices_to_igb_uio()
 		echo ""
 		echo -n "Enter PCI address of device to bind to IGB UIO driver: "
 		#read PCI_PATH
-		PCI_PATH="0000:00:08.0"
+		PCI_PATH=$pci_path_1" "$pci_path_2;
         echo "${PCI_PATH}"
 
 		sudo ${RTE_SDK}/tools/dpdk-devbind.py -b igb_uio $PCI_PATH && echo "OK"
@@ -478,7 +496,7 @@ step1_func()
 {
 	TITLE="Select the DPDK environment to build"
 	CONFIG_NUM=1
-	for cfg in config/defconfig_* ; do
+	for cfg in ${RTE_SDK}/config/defconfig_* ; do
 		cfg=${cfg/config\/defconfig_/}
 		TEXT[$CONFIG_NUM]="$cfg"
 		TARGETS[$CONFIG_NUM]=$cfg
@@ -613,17 +631,17 @@ QUIT=1
 
 
 	echo -n "Option: "
-    our_entry=16
+    our_entry=$choice_1
     echo "${our_entry}"
 	${OPTIONS[our_entry]} ${our_entry}
 
 	echo -n "Option: "
-    our_entry=19
+    our_entry=$choice_2
     echo "${our_entry}"
 	${OPTIONS[our_entry]} ${our_entry}
 
 	echo -n "Option: "
-    our_entry=22
+    our_entry=$choice_3
     echo "${our_entry}"
 	${OPTIONS[our_entry]} ${our_entry}
 

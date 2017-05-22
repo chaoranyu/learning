@@ -5,7 +5,7 @@ int main()
 {
     int len, nel;
     //char query[] ="username=appleboy&&&&password=123456&action=delete";
-    char query[] ="username=appleboy    password=123456 action=delete";
+    char query[] ="username=spaceboy    password=123456 action=create";
     char *q, *name, *value;
 
     /* Parse into individual assignments */

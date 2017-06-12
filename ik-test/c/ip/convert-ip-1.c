@@ -60,7 +60,7 @@ int ip_s2n(char *s_ip, unsigned int *n_ip)
         }
     }
 
-    if (i > 4)
+    if (i != 4)
         return -1;
 
     *n_ip = n;
@@ -83,6 +83,8 @@ int main()
     {
         fprintf(stderr, "invalid ip, cannot convert it\n");
     }
+
+    fprintf(stdout, "//ip = %s\n", s_ip);
 
     return 0;
 }

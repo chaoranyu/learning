@@ -118,5 +118,7 @@ int main()
         fprintf(stderr, "invalid ip, cannot convert it\n");
     }
 
+    fprintf(stdout, "//ip = %s\n", s_ip);
+
     return 0;
 }

@@ -5,6 +5,9 @@
 int main(void)
 {
     const char str[] = "How many characters does this string contain?";
+
+    char test_str[32];
+    printf("strlen(test_str) = %zu\n", strlen(test_str));
  
     printf("without null character: %zu\n", strlen(str));
     printf("with null character:    %zu\n", sizeof str);

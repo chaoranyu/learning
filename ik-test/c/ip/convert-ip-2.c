@@ -42,7 +42,7 @@ int ip_s2n(char *s_ip, unsigned int *n_ip)
         // fprintf(stdout, "%s\n", tmp);
         if (c == '.')
         {
-            if (*s_ip == '\0')
+            if (*s_ip < '0' || *s_ip > '9')
                 return -1;
 
 #if defined(X86_PLATFORM) || defined(DEC_PLATFORM)

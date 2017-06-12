@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #ifndef X86_PLATFORM
 #define X86_PLATFORM
@@ -31,19 +32,21 @@ int ip_s2n(char *s_ip, unsigned int *n_ip)
         return -1;
     }
 
-    char *tmp = NULL;
+    char *tmp = (char *)malloc(16 * sizeof(char));
+    strcpy(tmp, s_ip);
+    char *walk = NULL;
     unsigned int n = 0;
     int i = 0;
 
-    while (tmp = strsep(&s_ip, "."))
+    while (walk = strsep(&tmp, "."))
     {
-        // fprintf(stdout, "%s\n", tmp);
-        if (strlen(tmp) > 0 && strlen(tmp) < 4)
+        // fprintf(stdout, "%s\n", walk);
+        if (strlen(walk) > 0 && strlen(walk) < 4)
         {
             //n <<= 8;
-            if (*tmp < '0' || *tmp > '9')
+            if (*walk < '0' || *walk > '9')
                 return -1;
-            unsigned m = atoi(tmp);
+            unsigned m = atoi(walk);
             if (m > 255)
                 return -1;
 

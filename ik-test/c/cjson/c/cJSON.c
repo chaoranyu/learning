@@ -58,7 +58,7 @@ CJSON_PUBLIC(const char *) cJSON_GetErrorPtr(void)
 }
 
 /* This is a safeguard to prevent copy-pasters from using incompatible C and header files */
-#if (CJSON_VERSION_MAJOR != 1) || (CJSON_VERSION_MINOR != 5) || (CJSON_VERSION_PATCH != 5)
+#if (CJSON_VERSION_MAJOR != 1) || (CJSON_VERSION_MINOR != 5) || (CJSON_VERSION_PATCH != 2)
     #error cJSON.h and cJSON.c have different versions. Make sure that both have the same.
 #endif
 
@@ -1975,34 +1975,14 @@ CJSON_PUBLIC(void) cJSON_ReplaceItemInArray(cJSON *array, int which, cJSON *newi
     cJSON_ReplaceItemViaPointer(array, get_array_item(array, (size_t)which), newitem);
 }
 
-static cJSON_bool replace_item_in_object(cJSON *object, const char *string, cJSON *replacement, cJSON_bool case_sensitive)
-{
-    if (replacement == NULL)
-    {
-        return false;
-    }
-
-    /* replace the name in the replacement */
-    if (!(replacement->type & cJSON_StringIsConst) && (replacement->string != NULL))
-    {
-        cJSON_free(replacement->string);
-    }
-    replacement->string = (char*)cJSON_strdup((const unsigned char*)string, &global_hooks);
-    replacement->type &= ~cJSON_StringIsConst;
-
-    cJSON_ReplaceItemViaPointer(object, get_object_item(object, string, case_sensitive), replacement);
-
-    return true;
-}
-
 CJSON_PUBLIC(void) cJSON_ReplaceItemInObject(cJSON *object, const char *string, cJSON *newitem)
 {
-    replace_item_in_object(object, string, newitem, false);
+    cJSON_ReplaceItemViaPointer(object, cJSON_GetObjectItem(object, string), newitem);
 }
 
 CJSON_PUBLIC(void) cJSON_ReplaceItemInObjectCaseSensitive(cJSON *object, const char *string, cJSON *newitem)
 {
-    replace_item_in_object(object, string, newitem, true);
+    cJSON_ReplaceItemViaPointer(object, cJSON_GetObjectItemCaseSensitive(object, string), newitem);
 }
 
 /* Create basic types: */
@@ -2594,44 +2574,22 @@ CJSON_PUBLIC(cJSON_bool) cJSON_Compare(const cJSON * const a, const cJSON * cons
                 b_element = b_element->next;
             }
 
-            /* one of the arrays is longer than the other */
-            if (a_element != b_element) {
-                return false;
-            }
-
             return true;
         }
 
         case cJSON_Object:
         {
             cJSON *a_element = NULL;
-            cJSON *b_element = NULL;
             cJSON_ArrayForEach(a_element, a)
             {
                 /* TODO This has O(n^2) runtime, which is horrible! */
-                b_element = get_object_item(b, a_element->string, case_sensitive);
+                cJSON *b_element = get_object_item(b, a_element->string, case_sensitive);
                 if (b_element == NULL)
                 {
                     return false;
                 }
 
                 if (!cJSON_Compare(a_element, b_element, case_sensitive))
-                {
-                    return false;
-                }
-            }
-
-            /* doing this twice, once on a and b to prevent true comparison if a subset of b
-             * TODO: Do this the proper way, this is just a fix for now */
-            cJSON_ArrayForEach(b_element, b)
-            {
-                a_element = get_object_item(a, b_element->string, case_sensitive);
-                if (a_element == NULL)
-                {
-                    return false;
-                }
-
-                if (!cJSON_Compare(b_element, a_element, case_sensitive))
                 {
                     return false;
                 }

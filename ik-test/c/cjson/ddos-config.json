@@ -1,9 +1,0 @@
-{
-	"auth_table_size":	1000,
-	"source_table_child_num":	4,
-	"default":	{
-		"first_packet":	true,
-		"source_detect":	false,
-		"detect_ttl":	true
-	}
-}

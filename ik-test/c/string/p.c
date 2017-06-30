@@ -36,8 +36,18 @@ int main()
         "Top 4 wishes:\n  1) To earn money without working.\n  2) To be smart without studying.\n  3) To love without being hurt.\n  4) To eat without getting fat."
         };
 
+#define COLOR_BLACK     "\033[30m"
+#define COLOR_GREEN     "\033[32m"
+#define COLOR_RED       "\033[31m"
+#define COLOR_PURPLE    "\033[35m"
+#define COLOR_BLUE      "\033[34m"
+#define COLOR_SKYBLUE   "\033[36m"
+#define COLOR_YELLOW    "\033[33m"
+
+#define COLOR_DEFAULT   "\033[m"
+
     srand(time(0));
-    printf("%s\n", sss[rand()%30]);
+    printf("%s%s%s\n", COLOR_BLUE, sss[rand()%30], COLOR_DEFAULT);
     // printf("%s\n", sss[29]);
 
     return 0;

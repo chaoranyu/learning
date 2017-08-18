@@ -103,6 +103,7 @@ void parseJson(char *pMsg)
 
 int main()
 {
+    int i;
     FILE* fp = fopen("ddos-config.json", "w+");
     if (!fp) {
         perror("File opening failed");

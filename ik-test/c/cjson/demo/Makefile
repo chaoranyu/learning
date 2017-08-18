@@ -1,4 +1,5 @@
 
+CFLAGS += $(WERROR_FLAGS)
 
 .PHONY:all
 

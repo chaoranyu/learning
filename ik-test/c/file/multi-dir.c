@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <string.h>
+
 #define FILE_NAME_LEN 1024
 
 void mkdirs(char *muldir)
 {
     int i,len;
-    char str[];
+    char str[FILE_NAME_LEN];
     strncpy(str, muldir, FILE_NAME_LEN);
 
     len=strlen(str);

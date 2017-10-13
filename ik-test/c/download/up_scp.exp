@@ -1,0 +1,39 @@
+#!/usr/bin/expect -f
+
+# 用命令行参数给变量赋值
+set ip_host [lindex $argv 0]
+set username [lindex $argv 1]
+set password [lindex $argv 2]
+set src_file [lindex $argv 3]
+set dst_path [lindex $argv 4]
+
+# 设置超时时间
+set timeout 60
+
+# upload 
+spawn scp $src_file $username@$ip_host:$dst_path
+
+# 处理 yes, no，对应第一次与 ip_host连接
+# expect_before "(yes/no)?" { send "yes\r" }
+
+# 自动输入密码；并处理执行结果
+expect "(yes/no)?" { 
+	send "yes\r" 
+	exp_continue
+} "*assword:" { 
+	# 输入命令；Password: or password:
+	send "$password\r" 
+	exp_continue
+} "100%" {
+	send_user "ik upload successfully!\n"
+	expect eof {
+        	exit 0
+	}       
+} timeout {
+	send_user "ik timeout\n"	
+	exit 2
+} eof {
+	send_user "ik upload eof\n"	
+	exit 1
+} 
+

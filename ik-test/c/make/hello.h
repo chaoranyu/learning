@@ -1,0 +1,5 @@
+#define HELLO_BUILD_VER "0.1"
+#define HELLO_BUILD_USER "yu"
+#define HELLO_BUILD_HOST "ikv-yucr"
+#define HELLO_BUILD_DATE "Wed Nov  8 14:14:27 CST 2017"
+#define HELLO_BUILD_TOPDIR "/home/yu/workspace/learning/ik-test/c/make"

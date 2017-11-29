@@ -25,15 +25,15 @@ expect "(yes/no)?" {
 	send "$password\r" 
 	exp_continue
 } "100%" {
-	send_user "ik upload successfully!\n"
+	send_user "ufo upload successfully!\n"
 	expect eof {
         	exit 0
 	}       
 } timeout {
-	send_user "ik timeout\n"	
+	send_user "ufo timeout\n"	
 	exit 2
 } eof {
-	send_user "ik upload eof\n"	
+	send_user "ufo upload eof\n"	
 	exit 1
 } 
 

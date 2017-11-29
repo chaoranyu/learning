@@ -5,13 +5,13 @@
 int main()
 {
 	char command_str[1024];
-	char ip_host[32] = { "10.0.5.72" };
+	char ip_host[32] = { "10.0.5.5" };
 	char username[128] = { "root" };
-	char password[128] = { "ikos1234561" };
-	char src_pathname[256] = { "/usr/lib/ik_lib/up_scp.exp" };
+	char password[128] = { "ufo" };
+	char src_pathname[256] = { "up_scp.exp" };
 	char dst_path[256] = { "/home/" };
 
-	sprintf(command_str, "/usr/lib/ik_lib/up_scp.exp %s %s %s %s %s > /dev/null 2>&1",
+	sprintf(command_str, "up_scp.exp %s %s %s %s %s > /dev/null 2>&1",
 			ip_host, username, password, src_pathname, dst_path);
 
 	printf("%s\n", command_str);

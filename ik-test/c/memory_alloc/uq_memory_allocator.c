@@ -1,9 +1,9 @@
 /****************************************************************
- * Copyright (C) Beijing Yufeng Technologies Co., Ltd. 2017-2020.
+ * Copyright (C) UFO Quantum Technologies Co., Ltd. 2017-2020.
  * All rights reserved.
  *
- * @file	ik_memory_allocator.h
- * @author	Yuchaoran
+ * @file	uq_memory_allocator.h
+ * @author	ufo
  * @version	v1.0
  * @date	2017/03/26
  * @brief	
@@ -13,7 +13,7 @@
 #include <limits.h>
 #include <assert.h>
 
-#include "ik_memory_allocator.h"
+#include "uq_memory_allocator.h"
 
 /*
 #ifndef min

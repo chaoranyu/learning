@@ -24,13 +24,13 @@ expect "(yes/no)?" {
 	send "$password\r" 
 	exp_continue
 } "100%" {
-	send_user "ik download successfully!\n"
+	send_user "ufo download successfully!\n"
 	exit 0
 } timeout {
-	send_user "ik timeout\n"	
+	send_user "ufo timeout\n"	
 	exit 2
 } eof {
-	send_user "ik download eof\n"	
+	send_user "ufo download eof\n"	
 	exit 1
 } 
 

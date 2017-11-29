@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "ik_memory_allocator.h"
+#include "uq_memory_allocator.h"
 
 typedef struct test {
     int a;

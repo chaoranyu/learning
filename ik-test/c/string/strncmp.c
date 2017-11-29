@@ -3,11 +3,11 @@
 
 int main()
 {
-    //char view_name[] = "ik-ddos-zonE";
-    char view_name[] = "ik-ddos-zone";
+    //char view_name[] = "ufo-test-zonE";
+    char view_name[] = "ufo-test-zone";
 
-	//if(strncmp(view_name, "ik-ddos-zone", 12))
-	if(strncmp(view_name, "ik-ddos-zone", strlen("ik-ddos-zone")))
+	//if(strncmp(view_name, "ufo-test-zone", 12))
+	if(strncmp(view_name, "ufo-test-zone", strlen("ufo-test-zone")))
 	{
 		printf("view para error! view :%s\n", view_name);
 

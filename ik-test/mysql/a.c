@@ -8,7 +8,7 @@ int main(void) {
         exit(1);
     }
 
-    fprintf(stdout, "initialize MySQL library\n");
+    fprintf(stdout, "initialize MySQL library success\n");
 
     /* Use any MySQL API functions here */
     mysql_library_end();

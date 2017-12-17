@@ -6,11 +6,13 @@ typedef struct {
     int *b;
 } test_t;
 
-const int* const test(test_t *te)
+const int* const
+test(test_t *te)
 {
     return te->a;
 }
 
+int
 main()
 {
     test_t *t;
@@ -24,4 +26,8 @@ main()
     int *p = test(t);
     *p = 2;
     printf("%d  %d\n", *t->a, *t->b);
+
+    free(t->a);
+    free(t->b);
+    free(t);
 }

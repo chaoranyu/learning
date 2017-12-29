@@ -1,0 +1,14 @@
+#! /bin/sh
+
+log_file="/root/ufo.log"
+
+date > ${log_file}
+
+for i in {1..100}
+do
+    echo -e "#${i}  \c" >> ${log_file}
+    date "+%H:%M:%S" >> ${log_file}
+    free -m >> ${log_file}
+    echo >> ${log_file}
+    sleep 1
+done

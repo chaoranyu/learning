@@ -55,11 +55,20 @@ my_mkdirs(const char *muldir)
 int
 test(char *path)
 {
+    if (path == NULL || strlen(path) == 0 || *path != '/')
+    {
+        fprintf(stdout, "Bad path: %s\n", path);
+        return -1;
+    }
+
     struct stat stat_info;
     char handle_path[1024] = { 0 };
     char *tmp = handle_path;
 
     strncpy(handle_path, path, 1024);
+    while (*tmp++ != '\0')
+        ;
+    *(tmp - 2) = '\0';
 
     if(access(handle_path, F_OK) == 0)
     {
@@ -94,6 +103,7 @@ test(char *path)
     else
     {
         /* If the directory not exsit, make it recursively */
+#if 0
         fprintf(stdout, "Dir %s not exists, errno = %d.\n", handle_path, errno);
         switch (errno)
         {
@@ -117,6 +127,7 @@ test(char *path)
             break;
         }
 
+#endif
         my_mkdirs(handle_path);
     }
 

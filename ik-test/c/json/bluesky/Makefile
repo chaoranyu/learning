@@ -15,4 +15,4 @@ main.o:main.c
 .PHONY:clean
 
 clean:
-	rm test
+	rm -f test *.o *.out

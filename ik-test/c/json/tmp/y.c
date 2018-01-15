@@ -6,7 +6,7 @@ void * malloc_test(size_t size)
     return malloc(size);
 }
 
-int test()
+int main()
 {
     int *x = malloc_test(sizeof(int));
 

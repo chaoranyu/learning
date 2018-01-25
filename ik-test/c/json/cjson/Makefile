@@ -10,4 +10,4 @@ test:cJSON.c main.c cJSON.h
 .PHONY:clean
 
 clean:
-	rm test
+	-rm -f test *.json

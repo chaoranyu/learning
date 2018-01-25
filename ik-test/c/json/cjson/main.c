@@ -17,7 +17,7 @@ char * makeJson(FILE* fp)
 
     root = cJSON_CreateObject();
     cJSON_AddNumberToObject(root, "table_size", 1000);
-    cJSON_AddNumberToObject(root, "item_num", 4);
+    cJSON_AddNumberToObject(root, "float_num", 3.5);
     cJSON_AddItemToObject(root, "question", question = cJSON_CreateObject());
     cJSON_AddTrueToObject(question, "is_happy");
     cJSON_AddFalseToObject(question, "is_sweet");
@@ -99,15 +99,15 @@ void parseJson(char *pMsg)
     {
         goto end;
     }
-    printf("table_size: %d\n", pSub->valueint);
+    printf("table_size: %d\n", (int)pSub->valuedouble);
 
     // get number from json
-    pSub = cJSON_GetObjectItem(pJson, "item_num");
+    pSub = cJSON_GetObjectItem(pJson, "float_num");
     if (NULL == pSub)
     {
         goto end;
     }
-    printf("item_num: %d\n", pSub->valueint);
+    printf("float_num: %f\n", pSub->valuedouble);
 
     // get bool from json
     pSub = cJSON_GetObjectItem(pJson, "question");

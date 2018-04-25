@@ -1,0 +1,20 @@
+#!/bin/sh
+
+for i in {1..100}
+do
+    echo "#$i hello"
+    sleep 6
+done
+
+
+# Test if they are release libraries.
+
+#MY_PATH="lib/"
+#
+#cd ${MY_PATH}
+#
+#for file in `ls`
+#do
+#    echo -e ${file}": \c"
+#    objdump -g ${file} | grep debug -c
+#done

@@ -2,18 +2,18 @@
 # -*- coding: utf-8 -*-
 # tablePrinter.py - Print list in a pretty format.
 
-def printTable(inputList):
-    colWidths = [0] * len(inputList)
-    for i in range(len(inputList)):
-        for item in inputList[i]:
-            if (len(item) > colWidths[i]):
-                colWidths[i] = len(item)
+def printTable(inList):
+    colWidths = [0] * len(inList)
+    for x in range(len(inList)):
+        for i in inList[x]:
+            if (len(i) > colWidths[x]):
+                colWidths[x] = len(i)
     #print(colWidths)
     if colWidths[0] == 0:
         return
-    for j in range(len(inputList[0])):
-        for i in range(len(inputList)):
-            print(inputList[i][j].rjust(colWidths[i]), end = ' ')
+    for y in range(len(inList[0])):
+        for x in range(len(inList)):
+            print(inList[x][y].rjust(colWidths[x]), end = ' ')
         print()
 
 tableData = [['apples', 'oranges', 'cherries', 'banana'],

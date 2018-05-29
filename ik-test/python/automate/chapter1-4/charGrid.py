@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # -*- charset: utf-8 -*-
 
+# charGrid.py: Character Picture Grid
 def printGrid(someGrid):
-    i = len(someGrid)
-    j = len(someGrid[-1])
-    for col in range(j):
-        for row in range(i):
-            print(someGrid[row][col], end = '')
+    for y in range(len(someGrid[0])):
+        for x in range(len(someGrid)):
+            print(someGrid[x][y], end = '')
         print()
 
 grid = [['.', '.', '.', '.', '.', '.'],
@@ -18,17 +17,17 @@ grid = [['.', '.', '.', '.', '.', '.'],
         ['O', 'O', 'O', 'O', '.', '.'],
         ['.', 'O', 'O', '.', '.', '.'],
         ['.', '.', '.', '.', '.', '.']]
-print('>> One')
 printGrid(grid)
+print('---------TEST2----------')
 
-grid = ['.', '.', 'O', 'O', '.', 'O', 'O', '.', '.']
-print('\n>> Two:')
+grid = ['.', '.', 'X', 'X', '.', 'X', 'X', '.', '.']
 printGrid(grid)
+print('---------TEST3----------')
 
-grid = ['O']
-print('\n>> Three:')
+grid = [['X', 'X', 'X']]
 printGrid(grid)
+print('---------TEST4----------')
 
 grid = [[]]
-print('\n>> Four:')
 printGrid(grid)
+print('----------END-----------')

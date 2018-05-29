@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# This is a program about Collatz Conjecture.
+# collatz.py: The Collatz Sequence
 import sys
-print('Input a number:')
 
 def collatz(initNumber):
     print(initNumber)
@@ -16,21 +15,21 @@ def collatz(initNumber):
         return collatz(initNumber * 3 + 1)
 
 
-# Ask the player guess 6 times
+print('Input a number: (empty to exit)')
 while True:
     print('------------------------')
     try:
-        inputStr = input()
-        if inputStr == 'exit':
+        inString = input()
+        if inString == '':
             sys.exit()
 
         try:
-            number = int(inputStr)
+            inNumber = int(inString)
         except:
-            print('Error: Invalid argument.')
+            print('You must enter an integer.')
             continue
 
-        collatz(number)
-    except:
-        print('force exit...')
+        collatz(inNumber)
+    except KeyboardInterrupt:
+        #print('force exit...')
         sys.exit()

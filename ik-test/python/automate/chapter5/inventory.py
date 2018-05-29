@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# inventory.py
-stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
-
+# inventory.py: Fantasy Game Inventory
 def displayInventory(inventory):
     print('Inventory:')
     item_total = 0;
@@ -12,4 +10,16 @@ def displayInventory(inventory):
         item_total += v
     print('Total number of items: ' + str(item_total))
 
-displayInventory(stuff)
+def addToInventory(inventory, addedItems):
+    inv = inventory
+    for i in addedItems:
+        inv.setdefault(i, 0)
+        inv[i] += 1
+    return inv
+
+inv = {'gold coin': 42, 'rope': 1}
+#displayInventory(inv)
+
+dragonRoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+inv = addToInventory(inv, dragonRoot)
+displayInventory(inv)

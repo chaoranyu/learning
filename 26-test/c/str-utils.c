@@ -18,6 +18,7 @@ enum
 
 #define INT_RANGE_STR_LEN (256U)
 #define INT_RANGE_ARRAY_SIZE (256U)
+#define INT_RANGE_MAX_INT 65535
 
 int32_t str_util_atoi(const char *s, uint32_t *num)
 {
@@ -49,8 +50,6 @@ int32_t str_util_atoi(const char *s, uint32_t *num)
     return E_OK;
 }
 
-#define AD_RANGE_MAX_INT 65535
-
 int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
 {
     if (NULL == s || NULL == range || NULL == num)
@@ -65,21 +64,21 @@ int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
     str[sizeof(str) - 1] = '\0';
     input = str;
 
-#define AD_RANGE_START 0
-#define AD_RANGE_HIT_MIN 1
-#define AD_RANGE_HIT_DASH 2
-#define AD_RANGE_HIT_MAX 3
-#define AD_RANGE_HIT_END 4
+#define FLAG_BEGIN 0
+#define FLAG_HIT_MIN 1
+#define FLAG_HIT_HYPHEN 2
+#define FLAG_HIT_MAX 3
+#define FLAG_HIT_END 4
 
     while ((unit = strsep(&input, ",")) != NULL)
     {
         uint32_t min = 0;
         uint32_t max = 0;
-        uint32_t flags = AD_RANGE_START;
+        uint32_t flags = FLAG_BEGIN;
 
         while ((c = *unit++) != '\0')
         {
-            if (AD_RANGE_START == flags)
+            if (FLAG_BEGIN == flags)
             {
                 if (c == '-')
                 {
@@ -90,13 +89,13 @@ int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
                     return E_BADNUM;
 
                 min = min * 10 + (c - '0');
-                flags = AD_RANGE_HIT_MIN;
+                flags = FLAG_HIT_MIN;
             }
-            else if (AD_RANGE_HIT_MIN == flags)
+            else if (FLAG_HIT_MIN == flags)
             {
                 if (c == '-')
                 {
-                    flags = AD_RANGE_HIT_DASH;
+                    flags = FLAG_HIT_HYPHEN;
                     continue;
                 }
 
@@ -105,16 +104,16 @@ int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
 
                 min = min * 10 + (c - '0');
 
-                if (min > AD_RANGE_MAX_INT)
+                if (min > INT_RANGE_MAX_INT)
                     return E_BADNUM;
             }
-            else if (AD_RANGE_HIT_DASH == flags)
+            else if (FLAG_HIT_HYPHEN == flags)
             {
                 if (c < '0' || c > '9')
                     return E_BADNUM;
 
                 max = max * 10 + (c - '0');
-                flags = AD_RANGE_HIT_MAX;
+                flags = FLAG_HIT_MAX;
             }
             else
             {
@@ -123,18 +122,18 @@ int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
 
                 max = max * 10 + (c - '0');
 
-                if (max > AD_RANGE_MAX_INT)
+                if (max > INT_RANGE_MAX_INT)
                     return E_BADNUM;
             }
         }
 
-        if (AD_RANGE_START == flags)
+        if (FLAG_BEGIN == flags)
             return E_BADNUM;
 
-        if (AD_RANGE_HIT_DASH == flags && max == 0)
+        if (FLAG_HIT_HYPHEN == flags && max == 0)
             return E_BADNUM;
 
-        if (AD_RANGE_HIT_DASH == flags || AD_RANGE_HIT_MIN == flags)
+        if (FLAG_HIT_HYPHEN == flags || FLAG_HIT_MIN == flags)
             max = min;
 
         uint32_t ui;
@@ -147,11 +146,11 @@ int32_t str_util_atoi_range(const char *s, uint32_t range[], uint32_t *num)
     *num = n;
     return E_OK;
 
-#undef AD_RANGE_START
-#undef AD_RANGE_HIT_MIN
-#undef AD_RANGE_HIT_DASH
-#undef AD_RANGE_HIT_MAX
-#undef AD_RANGE_HIT_END
+#undef FLAG_BEGIN
+#undef FLAG_HIT_MIN
+#undef FLAG_HIT_HYPHEN
+#undef FLAG_HIT_MAX
+#undef FLAG_HIT_END
 }
 
 int32_t str_util_pton(const char *s, uint32_t *ip)

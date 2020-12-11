@@ -2,17 +2,17 @@
 CFLAGS += $(WERROR_FLAGS)
 objects = *.o
 
-.PHONY:all
+.PHONY: all
 
-all:test
+all: test
 
-test:main.o
+test: main.o
 	cc -o test main.o
 
-main.o:main.c
+main.o: main.c
 	cc -o main.o -c $(CFLAGS) main.c
 
-.PHONY:clean
+.PHONY: clean
 
 clean:
 	rm -f test *.o *.out

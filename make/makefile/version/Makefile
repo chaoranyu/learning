@@ -29,4 +29,4 @@ f="hello.h"
 
 .PHONY: clean
 clean:
-	@$(RM) $(objects) hello
+	@$(RM) $(objects) hello $(f)

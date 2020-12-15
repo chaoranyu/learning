@@ -2,7 +2,7 @@
 
 # range
 for value in range(1, 5):
-	print(value)
+    print(value)
 
 # range to list
 numbers = list(range(1, 6))
@@ -15,15 +15,15 @@ print(even_numbers)
 # squares
 squares = []
 for value in range(1, 11):
-	square = value ** 2
-	squares.append(square)
+    square = value ** 2
+    squares.append(square)
 
 print(squares)
 
 # squares 2
 squares = []
 for value in range(1, 11):
-	squares.append(value ** 2)
+    squares.append(value ** 2)
 
 print(squares)
 
@@ -40,28 +40,28 @@ print("sum(digits) = " + str(sum(digits)))
 # slices
 print("The first three items in the list are:")
 for digit in digits[:3]:
-	print(digit)
+    print(digit)
 
 print("Three items from the middle of the list are:")
 for digit in digits[3:6]:
-	print(digit)
+    print(digit)
 
 print("The last three items in the list are:")
 for digit in digits[-3:]:
-	print(digit)
+    print(digit)
 
 # range
 print("The first three items in the list are:")
 for i in range(0,3):
-	print(digits[i])
+    print(digits[i])
 
 print("Three items from the middle of the list are:")
 for i in range(3,6):
-	print(digits[i])
+    print(digits[i])
 
 print("The last three items in the list are:")
 for i in range(7,10):
-	print(digits[i])
+    print(digits[i])
 
 
 

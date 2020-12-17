@@ -39,7 +39,8 @@ for requested_topping in requested_toppings:
 print("\nFinished making your pizza!\n")
 
 # Checking that a list is not empty
-requested_toppings = [""]
+requested_toppings = []
+# requested_toppings = [''] # Not empty
 
 if requested_toppings:
     for requested_topping in requested_toppings:

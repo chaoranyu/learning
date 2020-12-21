@@ -1,0 +1,3 @@
+guru:x:1001:1001:guru,,,:/home/guru:/bin/bash
+oracle:x:1002:1002::/u01/app/oracle:/bin/bash
+test:x:1003:1003::/home/test:/bin/bash

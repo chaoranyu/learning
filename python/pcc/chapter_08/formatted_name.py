@@ -1,4 +1,4 @@
-#!/usr/bin/python3.9
+#!/usr/bin/env python3.9
 
 # Return a simple value
 # def get_formatted_name(first_name, last_name):
@@ -10,7 +10,7 @@
 # print(musician)
 
 # Making an argument optional.
-def get_formatted_name(first_name, last_name, middle_name = ''):
+def get_formatted_name(first_name, last_name, middle_name=''):
     ''' Return a full name, neatly formatted. '''
     if middle_name:
         full_name = f"{first_name} {middle_name} {last_name}"

@@ -8,8 +8,9 @@ def print_names(unprinted_names, completed_names):
     """
     for k, v in list(unprinted_names.items()):
         print(f"Printing name: {k} : {v}")
-        del(unprinted_names[k])
         completed_names[k] = v
+        #del(unprinted_names[k])
+        unprinted_names.pop(k)
 
 def show_completed_names(completed_names):
     """Show all the names that are printed."""

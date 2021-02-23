@@ -1,4 +1,4 @@
-#!/usr/bin/python3.9
+#!/usr/bin/env python3.9
 
 # Define a function.
 # def greet_user():
